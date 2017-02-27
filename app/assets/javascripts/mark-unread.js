@@ -24,5 +24,5 @@ function markUnread(link){
 }
 
 function readFail(err){
-  console.log("something went wrong")
+  console.log("something went wrong");
 }
