@@ -10,9 +10,8 @@ RSpec.describe "can mark links read and unread", :js => :true do
       fill_in "Title:", :with => "Turing"
       fill_in "URL:", :with => "http://turing.io"
       click_on "Add Link"
-      link = Link.first
 
-      within("#link-#{link.id}") do
+      within("#link-#{Link.first.id}") do
         click_on "Mark as Read"
         expect(page).to have_content("true")
         expect(page).to have_button("Mark as Unread")
@@ -31,14 +30,12 @@ RSpec.describe "can mark links read and unread", :js => :true do
       fill_in "Title:", :with => "Turing"
       fill_in "URL:", :with => "http://turing.io"
       click_on "Add Link"
-      link = Link.first
-      byebug
 
-      within("#link-#{link.id}") do
+      within("#link-#{Link.first.id}") do
         click_on "Mark as Read"
       end
 
-      within("#link-#{link.id}") do
+      within("#link-#{Link.first.id}") do
         click_on "Mark as Unread"
         expect(page).to have_content("false")
         expect(page).to have_button("Mark as Read")
