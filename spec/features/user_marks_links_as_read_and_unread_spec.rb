@@ -32,6 +32,7 @@ RSpec.describe "can mark links read and unread", :js => :true do
       fill_in "URL:", :with => "http://turing.io"
       click_on "Add Link"
       link = Link.first
+      byebug
 
       within("#link-#{link.id}") do
         click_on "Mark as Read"
