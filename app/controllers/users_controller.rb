@@ -9,11 +9,20 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to :root
     else
+      error = user.errors.messages.values.flatten[0]
+      flash[:error] = error_key[error]
       redirect_to :signup
     end
   end
 
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
-  end
+  private
+
+    def user_params
+      params.require(:user).permit(:email, :password, :password_confirmation)
+    end
+
+    def error_key
+      {"has already been taken" => "email has already been taken",
+       "doesn't match Password" => "passwords don't match"}
+    end
 end
