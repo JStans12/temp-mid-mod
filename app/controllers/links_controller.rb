@@ -14,6 +14,7 @@ class LinksController < ApplicationController
     if current_user.links.include?(link) && link.save
       redirect_to root_path
     else
+      flash[:error] = link_errors(link)
       redirect_to edit_link_path(link)
     end
   end
@@ -22,5 +23,11 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:title, :url)
+  end
+
+  def link_errors(link)
+    errors = ""
+    link.errors.full_messages.each { |m| errors += "#{m}. "}
+    return errors
   end
 end
