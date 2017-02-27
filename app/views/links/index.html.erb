@@ -1,29 +1,22 @@
-<% if current_user %>
+<p><%= link_to "Sign Out", logout_path %><p>
 
-  <%= link_to "Sign Out", logout_path %>
+<form id="new-link">
+  <label>URL:
+    <input id="link-url">
+  </label>
+  <label>Title:
+    <input id="link-title">
+  </label>
+  <input type="submit" value="Add Link">
+</form>
 
-  <form id="new-link">
-    <label>URL:
-      <input id="link-url">
-    </label>
-    <label>Title:
-      <input id="link-title">
-    </label>
-    <input type="submit" value="Add Link">
-  </form>
+<div id="links-list"></div>
 
-  <div id="links-list"></div>
-
-  <h2>Hot Reads!</h2>
-  <ol id="hot-reads">
-  <% @hot_links.each do |read| %>
-    <li class='hot-read'>
-      <a href="<%= read.url %>"><%= read.url %></a>
-    </li>
-  <% end %>
-  </ol>
-<% else %>
-  <p>You're not signed in</p>
-  <p><%= link_to "Login", login_path %></p>
-  <p><%= link_to "Sign Up", signup_path %></p>
+<h2>Hot Reads!</h2>
+<ol id="hot-reads">
+<% @hot_links.each do |read| %>
+  <li class='hot-read'>
+    <a href="<%= read.url %>"><%= read.url %></a>
+  </li>
 <% end %>
+</ol>
