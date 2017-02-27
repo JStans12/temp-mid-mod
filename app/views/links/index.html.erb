@@ -19,7 +19,11 @@
       <p class="link-url"> <%= link.url %> </p>
       <p class="link-read"> <%= link.read %> </p>
       <p class="link_buttons">
-        <button class="mark-read">Mark as Read</button>
+        <% unless link.read %>
+          <button class="mark-read">Mark as Read</button>
+        <% else %>
+          <button class="mark-unread" style="text-decoration: line-through;">Mark as Unread</button>
+        <% end %>
         <button class='edit-link'>Edit</button>
         <button class='delete-link'>Delete</button>
       </p>
