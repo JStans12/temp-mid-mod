@@ -1,22 +1,22 @@
 $(document).ready(function(){
 
-  $('#links-list').on('click', 'button.mark-read', function(){
+  $('#links-list').on('click', 'button.mark-unread', function(){
     var $this = $(this);
     var linkId = $this.parents('.link').data('id');
 
     $.ajax({
       url: '/api/v1/links/' + linkId,
       method: 'PATCH',
-      data: {read: true}
-    }).then( markRead )
+      data: {read: false}
+    }).then( markUnread )
       .fail( readFail )
   })
 })
 
-function markRead(link){
-  $('#links-list #link-' + link.id + ' .link-read').html("true");
+function markUnread(link){
+  $('#links-list #link-' + link.id + ' .link-read').html("false");
   $('#links-list #link-' + link.id + ' .link_buttons').html(
-    '<button class="mark-unread" style="text-decoration: line-through;">Mark as Unread</button>' +
+    '<button class="mark-read">Mark as Read</button>' +
     "<button class='edit-link'>Edit</button>" +
     "<button class='delete-link'>Delete</button>"
   );
