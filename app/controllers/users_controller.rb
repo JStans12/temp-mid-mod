@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     def error_key
       {"has already been taken" => "email has already been taken",
-       "doesn't match Password" => "passwords don't match"}
+       "doesn't match Password" => "passwords don't match",
+       "can't be blank" => "password can't be blank"}
     end
 end
