@@ -36,7 +36,7 @@ function linkHTML(link) {
               <p class='link-title'>${ link.title }</p>
               <p class='link-url'>${ link.url }</p>
 
-              <p class="link_read">
+              <p class="link-read">
                 ${ link.read }
               </p>
               <p class="link_buttons">
