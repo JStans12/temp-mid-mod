@@ -5,4 +5,24 @@ class LinksController < ApplicationController
     @hot = Link.hot
     @hottest = Link.hottest
   end
+
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    link = Link.find(params[:id])
+    link.assign_attributes(link_params)
+    if link.save
+      redirect_to root_path
+    else
+      redirect_to edit_link_path(link)
+    end
+  end
+
+  private
+
+  def link_params
+    params.require(:link).permit(:title, :url)
+  end
 end
