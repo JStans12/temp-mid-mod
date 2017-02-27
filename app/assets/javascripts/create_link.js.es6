@@ -26,13 +26,15 @@ function getLinkData() {
 }
 
 function renderLink(link){
-  $("#links-list").append( linkHTML(link) )
+  $("#links-list").prepend( linkHTML(link) )
+  addTitles();
   // clearLink();
 }
 
 function linkHTML(link) {
 
     return `<div class='link' data-id='${link.id}' id="link-${link.id}">
+              <h3 class='link-type'></h3>
               <p class='link-title'>${ link.title }</p>
               <p class='link-url'>${ link.url }</p>
 
