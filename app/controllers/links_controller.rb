@@ -11,7 +11,7 @@ class LinksController < ApplicationController
   def update
     link = Link.find(params[:id])
     link.assign_attributes(link_params)
-    if link.save
+    if current_user.links.include?(link) && link.save
       redirect_to root_path
     else
       redirect_to edit_link_path(link)

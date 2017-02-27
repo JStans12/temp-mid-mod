@@ -13,7 +13,7 @@ class Api::V1::LinksController < ApplicationController
     @link = Link.find params[:id]
     @link.assign_attributes link_params
     just_read = @link.read_changed? && @link.read
-    if @link.save
+    if current_user.links.include?(@link) && @link.save
       Read.create(link: @link) if just_read
       render json: @link
     else
