@@ -15,11 +15,11 @@ function addTitles(hotReads) {
 
   $('#links-list .link').each(function(){
     if ($(this).children('.link-url').html() == urls[0]) {
-      $(this).append("<p>TOP LINK</p>")
+      $(this).prepend("<h3>TOP LINK</h3>")
     } else if ($.inArray($(this).children('.link_url').html(), urls) == -1) {
-      $(this).append("<p>REGULAR LINK</p>")
+      $(this).prepend("<h3>REGULAR LINK</h3>")
     } else {
-      $(this).append("<p>HOT LINKS</p>")
+      $(this).prepend("<h3>HOT LINKS</h3>")
     }
   });
 }
