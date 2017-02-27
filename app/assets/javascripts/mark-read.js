@@ -16,7 +16,12 @@ $(document).ready(function(){
 })
 
 function updateLink(link){
-  $('#links-list #link-' + link.id + ' .link-read').html("true")
+  $('#links-list #link-' + link.id + ' .link-read').html("true");
+  $('#links-list #link-' + link.id + ' .link_buttons').html(
+    '<button class="mark-unread" style="text-decoration: line-through;">Mark as Unread</button>' +
+    "<button class='edit-link'>Edit</button>" +
+    "<button class='delete-link'>Delete</button>"
+  );
 }
 
 function readFail(err){
