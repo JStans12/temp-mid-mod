@@ -10,8 +10,7 @@ $(document).ready(function(){
 function createLink (event){
   event.preventDefault();
 
-  console.log("win")
-
+  clearLinkCreationErrors();
   var link = getLinkData();
 
   $.post("/api/v1/links", link)
@@ -53,6 +52,11 @@ function clearLink() {
   $newLinkUrl.val("");
 }
 
+function clearLinkCreationErrors(){
+  $('#link-creation-errors').html("")
+}
+
 function displayFailure(failureData){
   console.log("FAILED attempt to create new Link: " + failureData.responseText);
+  $('#link-creation-errors').append(failureData.responseText.slice(1,-1).replace(/\"/g, "").replace(/\,/g, ". "))
 }
