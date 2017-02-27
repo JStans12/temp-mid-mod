@@ -1,4 +1,9 @@
 class Link < ApplicationRecord
+  belongs_to :user
+  validates_presence_of :title
+  validates_presence_of :url
+  validates :url, format: { with: URI.regexp }
+
   scope :hot, -> {
     select('links.url as url')
       .joins('join reads on reads.link_id = links.id')
