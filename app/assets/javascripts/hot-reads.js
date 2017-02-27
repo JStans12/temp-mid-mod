@@ -12,14 +12,16 @@ function addTitles(hotReads) {
   for (var i = 0; i < hotReads.length; i++) {
     urls.push(hotReads[i].url)
   }
+  var hottest = urls[0]
 
   $('#links-list .link').each(function(){
-    if ($(this).children('.link-url').html() == urls[0]) {
+    var thisUrl = $(this).children('.link-url').html()
+    if ($.trim(thisUrl) == $.trim(hottest)) {
       $(this).prepend("<h3>TOP LINK</h3>")
-    } else if ($.inArray($(this).children('.link_url').html(), urls) == -1) {
+    } else if ($.inArray($.trim(thisUrl), urls) == -1) {
       $(this).prepend("<h3>REGULAR LINK</h3>")
     } else {
-      $(this).prepend("<h3>HOT LINKS</h3>")
+      $(this).prepend("<h3>HOT LINK</h3>")
     }
   });
 }
