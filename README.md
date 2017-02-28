@@ -23,3 +23,9 @@ If you're having problems troubleshooting asynchronous actions (like DOM changes
 #### Your JavaScript
 
 The major __GOTCHA__ here is that phantomjs doesn't recognize es6. So if you write es6 you will need to make your file extenstion `.js.es6`. You should see an example test in the `spec/features` directory.
+
+### Two Apps in One
+
+URLockbox is dependent on [Hot-Reads](https://github.com/JStans12/mod4final-hotreads). Every time you hit the index page of URLockbox, it sends an ajax request to Hot-Reads to get the 10 hottest reads for the last 24 hours.
+<br>
+Luckily, Hot-Reads is already setup and can be accessed at https://salty-journey-86577.herokuapp.com/ . Now those are some HOT READS!
