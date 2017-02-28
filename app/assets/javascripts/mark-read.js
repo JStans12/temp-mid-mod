@@ -23,6 +23,8 @@ $(document).ready(function(){
 
 function markRead(link){
   $('#links-list #link-' + link.id + ' .link-read').html("true");
+  $('#links-list #link-' + link.id + '').attr("data-read", "true");
+  $('#links-list #link-' + link.id + '').removeData();
   $('#links-list #link-' + link.id + '').css('background-color', 'lightgrey');
   $('#links-list #link-' + link.id + ' .link_buttons').html(
     '<button class="mark-unread">Mark as Unread</button>' +

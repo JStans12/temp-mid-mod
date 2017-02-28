@@ -15,6 +15,8 @@ $(document).ready(function(){
 
 function markUnread(link){
   $('#links-list #link-' + link.id + ' .link-read').html("false");
+  $('#links-list #link-' + link.id + '').attr("data-read", "false");
+  $('#links-list #link-' + link.id + '').removeData();
   $('#links-list #link-' + link.id + '').css('background-color', 'white');
   $('#links-list #link-' + link.id + ' .link_buttons').html(
     '<button class="mark-read">Mark as Read</button>' +

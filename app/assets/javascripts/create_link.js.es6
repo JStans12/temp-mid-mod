@@ -33,7 +33,7 @@ function renderLink(link){
 
 function linkHTML(link) {
 
-    return `<div class='link' data-id='${link.id}' id="link-${link.id}">
+    return `<div class='link' data-read='false' data-id='${link.id}' id="link-${link.id}">
               <h3 class='link-type'></h3>
               <p class='link-title'>${ link.title }</p>
               <p class='link-url'>${ link.url }</p>
